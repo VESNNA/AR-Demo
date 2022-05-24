@@ -21,24 +21,15 @@ class ViewController: UIViewController {
         
         let scene = SCNScene()
         
-        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.brown
+        let sphereGeometry = SCNSphere(radius: 0.3)
+        let sphereMaterial = SCNMaterial()
+        sphereMaterial.diffuse.contents = UIImage(named: "earth.jpg")
         
-        let boxNode = SCNNode(geometry: boxGeometry)
-        boxNode.geometry?.materials = [material]
-        boxNode.position = SCNVector3 (0, 0, -1.0)
+        let sphereNode = SCNNode(geometry: sphereGeometry)
+        sphereNode.geometry?.materials = [sphereMaterial]
+        sphereNode.position = SCNVector3(0, 0, -1)
         
-        scene.rootNode.addChildNode(boxNode)
-        
-        let textGeometry = SCNText(string: "This is the cube", extrusionDepth:  2.0)
-        textGeometry.firstMaterial?.diffuse.contents = UIColor.red
-        
-        let textNode = SCNNode(geometry: textGeometry)
-        textNode.scale = SCNVector3(0.005, 0.005, 0.005)
-        textNode.position = SCNVector3(0, 0.2, -1.5)
-        
-        scene.rootNode.addChildNode(textNode)
+        scene.rootNode.addChildNode(sphereNode)
         
         sceneView.scene = scene
     }
