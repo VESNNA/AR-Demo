@@ -20,18 +20,30 @@ class ViewController: UIViewController {
         sceneView.showsStatistics = true
         
         let scene = SCNScene()
-        
-        let sphereGeometry = SCNSphere(radius: 0.3)
-        let sphereMaterial = SCNMaterial()
-        sphereMaterial.diffuse.contents = UIImage(named: "earth.jpg")
-        
-        let sphereNode = SCNNode(geometry: sphereGeometry)
-        sphereNode.geometry?.materials = [sphereMaterial]
-        sphereNode.position = SCNVector3(0, 0, -1)
-        
-        scene.rootNode.addChildNode(sphereNode)
+        createFigures(in: scene)
         
         sceneView.scene = scene
+    }
+    
+    private func createFigures(in scene: SCNScene) {
+        let array: [SCNGeometry] = [SCNPlane(), SCNSphere(), SCNBox(), SCNPyramid(), SCNTube(), SCNCone(), SCNTorus(), SCNCylinder(), SCNCapsule()]
+        var xCoordinate = 1.0
+        sceneView.autoenablesDefaultLighting = true
+        
+        for geometryShape in array {
+            let node = SCNNode(geometry: geometryShape)
+            
+            let material = SCNMaterial()
+            material.diffuse.contents = UIColor.red
+            
+            node.geometry?.materials = [material]
+            
+            node.scale = SCNVector3(0.1, 0.1, 0.1)
+            node.position = SCNVector3(xCoordinate, 0, -1)
+            xCoordinate -= 0.2
+            
+            scene.rootNode.addChildNode(node)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

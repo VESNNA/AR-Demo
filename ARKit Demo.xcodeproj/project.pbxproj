@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B37583A283D5977006849B7 /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B375838283D5976006849B7 /* earth.jpg */; };
 		5BADEF86283A5D5600D8CA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */; };
 		5BADEF88283A5D5600D8CA10 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BADEF87283A5D5600D8CA10 /* art.scnassets */; };
 		5BADEF8A283A5D5600D8CA10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADEF89283A5D5600D8CA10 /* ViewController.swift */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B375838283D5976006849B7 /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
 		5BADEF82283A5D5500D8CA10 /* ARKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BADEF87283A5D5600D8CA10 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 				5BADEF8B283A5D5600D8CA10 /* Main.storyboard */,
 				5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */,
 				5BADEF90283A5D5F00D8CA10 /* LaunchScreen.storyboard */,
-				5B375838283D5976006849B7 /* earth.jpg */,
 			);
 			path = "ARKit Demo";
 			sourceTree = "<group>";
@@ -127,7 +124,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BADEF88283A5D5600D8CA10 /* art.scnassets in Resources */,
-				5B37583A283D5977006849B7 /* earth.jpg in Resources */,
 				5BADEF92283A5D5F00D8CA10 /* LaunchScreen.storyboard in Resources */,
 				5BADEF8F283A5D5F00D8CA10 /* Assets.xcassets in Resources */,
 				5BADEF8D283A5D5600D8CA10 /* Main.storyboard in Resources */,
