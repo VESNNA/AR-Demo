@@ -52,7 +52,6 @@ class ViewController: UIViewController {
         
         node.geometry?.materials = [material]
         
-        node.scale = SCNVector3(0.1, 0.1, 0.1)
         node.position = SCNVector3(0.0, 0.0, -1.0)
         
         scene.rootNode.addChildNode(node)
