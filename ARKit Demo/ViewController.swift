@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
         let scene = SCNScene()
         createBox(in: scene)
