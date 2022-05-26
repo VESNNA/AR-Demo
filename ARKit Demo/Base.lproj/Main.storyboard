@@ -58,6 +58,9 @@
                             <constraint firstItem="FeN-55-7ug" firstAttribute="leading" secondItem="cuI-EJ-c6h" secondAttribute="leading" id="ydg-Df-xOe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sceneView" destination="FeN-55-7ug" id="gEu-tw-ZLB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
