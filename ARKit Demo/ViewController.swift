@@ -74,4 +74,8 @@ class ViewController: UIViewController {
         // Pause the view's session
         sceneView.session.pause()
     }
+    
+    @IBAction func resetTapped(sender: UIButton) {}
+    
+    @IBAction func addTapped(sender: UIButton) {}
 }
