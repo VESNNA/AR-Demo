@@ -13,6 +13,10 @@ class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var session: ARSession {
+        return sceneView.session
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +25,6 @@ class ViewController: UIViewController {
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
         let scene = SCNScene()
-        createBox(in: scene)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(boxTapped))
         self.sceneView.addGestureRecognizer(gestureRecognizer)
@@ -52,8 +55,8 @@ class ViewController: UIViewController {
         material.specular.contents = UIColor.yellow
         
         node.geometry?.materials = [material]
-        
         node.position = SCNVector3(0.0, 0.0, -1.0)
+        node.name = "box"
         
         scene.rootNode.addChildNode(node)
     }
@@ -73,5 +76,21 @@ class ViewController: UIViewController {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    @IBAction func resetTapped(sender: UIButton) {
+        session.pause()
+        sceneView.scene.rootNode.enumerateChildNodes { node, _ in
+            if node.name == "box" {
+                node.removeFromParentNode()
+            }
+        }
+        
+        let configuration = ARWorldTrackingConfiguration()
+        session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
+    }
+    
+    @IBAction func addTapped(sender: UIButton) {
+        createBox(in: sceneView.scene)
     }
 }
