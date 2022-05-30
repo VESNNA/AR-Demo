@@ -22,6 +22,9 @@ class Box: SCNNode {
         
         self.geometry = boxGeometry
         self.position = position
+        
+        let physicsShape = SCNPhysicsShape(geometry: self.geometry!)
+        self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: physicsShape)
     }
     
     required init?(coder: NSCoder) {

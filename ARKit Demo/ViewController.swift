@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     
     func createBox(hitResult: ARHitTestResult) {
         let position = SCNVector3(hitResult.worldTransform.columns.3.x,
-                                  hitResult.worldTransform.columns.3.y + 0.05, //hardcode
+                                  hitResult.worldTransform.columns.3.y + 0.5, //need to spawn box above plane
                                   hitResult.worldTransform.columns.3.z)
         let box = Box(atPosition: position)
         sceneView.scene.rootNode.addChildNode(box)

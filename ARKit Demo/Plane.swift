@@ -32,6 +32,9 @@ class Plane: SCNNode {
                                    y: 0,
                                    z: anchor.center.z)
         self.transform = SCNMatrix4MakeRotation(Float(-Double.pi / 2), 1.0, 0.0, 0.0)
+        
+        let physicsShape = SCNPhysicsShape(geometry: self.geometry!)
+        self.physicsBody = SCNPhysicsBody(type: .static, shape: physicsShape)
     }
     
     func update(anchor: ARPlaneAnchor) {

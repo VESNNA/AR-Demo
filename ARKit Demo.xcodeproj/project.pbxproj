@@ -65,10 +65,10 @@
 				5BADEF87283A5D5600D8CA10 /* art.scnassets */,
 				5BADEF89283A5D5600D8CA10 /* ViewController.swift */,
 				5B2FD41A2844B474002261CE /* Box.swift */,
+				5B2FD41628449B0E002261CE /* Plane.swift */,
 				5BADEF8B283A5D5600D8CA10 /* Main.storyboard */,
 				5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */,
 				5BADEF90283A5D5F00D8CA10 /* LaunchScreen.storyboard */,
-				5B2FD41628449B0E002261CE /* Plane.swift */,
 				5B2FD41828449C4C002261CE /* pinkWeb.png */,
 			);
 			path = "ARKit Demo";
