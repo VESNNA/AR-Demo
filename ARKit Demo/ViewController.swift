@@ -12,6 +12,7 @@ import ARKit
 class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
+    var planes = [Plane]()
     
     var session: ARSession {
         return sceneView.session
@@ -21,7 +22,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         sceneView.showsStatistics = true
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints,
+                                  ARSCNDebugOptions.showWorldOrigin]
         
         let scene = SCNScene()
         sceneView.scene = scene
@@ -32,6 +35,7 @@ class ViewController: UIViewController {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -42,5 +46,28 @@ class ViewController: UIViewController {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+}
+
+// MARK: - ARSCNViewDelegate
+extension ViewController: ARSCNViewDelegate {
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard anchor is ARPlaneAnchor else { return }
+        
+        let plane = Plane(anchor: anchor as! ARPlaneAnchor)
+        
+        self.planes.append(plane)
+        node.addChildNode(plane)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        
+        let plane = self.planes.filter { plane in
+            return plane.anchor.identifier == anchor.identifier
+        }.first
+        
+        guard plane != nil else { return }
+        plane?.update(anchor: anchor as! ARPlaneAnchor)
     }
 }
