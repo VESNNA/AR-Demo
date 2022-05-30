@@ -10,6 +10,7 @@
 		5B2FD41728449B0E002261CE /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FD41628449B0E002261CE /* Plane.swift */; };
 		5B2FD41928449C4C002261CE /* pinkWeb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2FD41828449C4C002261CE /* pinkWeb.png */; };
 		5B2FD41B2844B474002261CE /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FD41A2844B474002261CE /* Box.swift */; };
+		5B2FD41D2844D835002261CE /* BiteMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FD41C2844D835002261CE /* BiteMaskCategory.swift */; };
 		5BADEF86283A5D5600D8CA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */; };
 		5BADEF88283A5D5600D8CA10 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BADEF87283A5D5600D8CA10 /* art.scnassets */; };
 		5BADEF8A283A5D5600D8CA10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADEF89283A5D5600D8CA10 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		5B2FD41628449B0E002261CE /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		5B2FD41828449C4C002261CE /* pinkWeb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkWeb.png; sourceTree = "<group>"; };
 		5B2FD41A2844B474002261CE /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		5B2FD41C2844D835002261CE /* BiteMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteMaskCategory.swift; sourceTree = "<group>"; };
 		5BADEF82283A5D5500D8CA10 /* ARKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BADEF87283A5D5600D8CA10 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */,
 				5BADEF90283A5D5F00D8CA10 /* LaunchScreen.storyboard */,
 				5B2FD41828449C4C002261CE /* pinkWeb.png */,
+				5B2FD41C2844D835002261CE /* BiteMaskCategory.swift */,
 			);
 			path = "ARKit Demo";
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BADEF8A283A5D5600D8CA10 /* ViewController.swift in Sources */,
+				5B2FD41D2844D835002261CE /* BiteMaskCategory.swift in Sources */,
 				5B2FD41B2844B474002261CE /* Box.swift in Sources */,
 				5B2FD41728449B0E002261CE /* Plane.swift in Sources */,
 				5BADEF86283A5D5600D8CA10 /* AppDelegate.swift in Sources */,
