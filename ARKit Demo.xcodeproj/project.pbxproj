@@ -9,25 +9,21 @@
 /* Begin PBXBuildFile section */
 		5B2FD41728449B0E002261CE /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FD41628449B0E002261CE /* Plane.swift */; };
 		5B2FD41928449C4C002261CE /* pinkWeb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2FD41828449C4C002261CE /* pinkWeb.png */; };
-		5B2FD41B2844B474002261CE /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FD41A2844B474002261CE /* Box.swift */; };
-		5B2FD41D2844D835002261CE /* BiteMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2FD41C2844D835002261CE /* BiteMaskCategory.swift */; };
 		5B97099328469715008FB176 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97099228469715008FB176 /* VirtualObject.swift */; };
-		5B970995284750E3008FB176 /* SmokeParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B970994284750E3008FB176 /* SmokeParticle.sks */; };
 		5BADEF86283A5D5600D8CA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */; };
 		5BADEF88283A5D5600D8CA10 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BADEF87283A5D5600D8CA10 /* art.scnassets */; };
 		5BADEF8A283A5D5600D8CA10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADEF89283A5D5600D8CA10 /* ViewController.swift */; };
 		5BADEF8D283A5D5600D8CA10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BADEF8B283A5D5600D8CA10 /* Main.storyboard */; };
 		5BADEF8F283A5D5F00D8CA10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */; };
 		5BADEF92283A5D5F00D8CA10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BADEF90283A5D5F00D8CA10 /* LaunchScreen.storyboard */; };
+		5BEB43402847CEEF00B7B4B4 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEB433E2847CEEF00B7B4B4 /* smoke.png */; };
+		5BEB43412847CEEF00B7B4B4 /* Smoke.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 5BEB433F2847CEEF00B7B4B4 /* Smoke.scnp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B2FD41628449B0E002261CE /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		5B2FD41828449C4C002261CE /* pinkWeb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkWeb.png; sourceTree = "<group>"; };
-		5B2FD41A2844B474002261CE /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		5B2FD41C2844D835002261CE /* BiteMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiteMaskCategory.swift; sourceTree = "<group>"; };
 		5B97099228469715008FB176 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
-		5B970994284750E3008FB176 /* SmokeParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeParticle.sks; sourceTree = "<group>"; };
 		5BADEF82283A5D5500D8CA10 /* ARKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BADEF87283A5D5600D8CA10 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -35,6 +31,8 @@
 		5BADEF8C283A5D5600D8CA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BADEF91283A5D5F00D8CA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BEB433E2847CEEF00B7B4B4 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		5BEB433F2847CEEF00B7B4B4 /* Smoke.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Smoke.scnp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,15 +68,14 @@
 				5BADEF85283A5D5600D8CA10 /* AppDelegate.swift */,
 				5BADEF87283A5D5600D8CA10 /* art.scnassets */,
 				5BADEF89283A5D5600D8CA10 /* ViewController.swift */,
-				5B2FD41A2844B474002261CE /* Box.swift */,
 				5B2FD41628449B0E002261CE /* Plane.swift */,
-				5BADEF8B283A5D5600D8CA10 /* Main.storyboard */,
-				5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */,
-				5BADEF90283A5D5F00D8CA10 /* LaunchScreen.storyboard */,
-				5B2FD41828449C4C002261CE /* pinkWeb.png */,
-				5B2FD41C2844D835002261CE /* BiteMaskCategory.swift */,
 				5B97099228469715008FB176 /* VirtualObject.swift */,
-				5B970994284750E3008FB176 /* SmokeParticle.sks */,
+				5BADEF8B283A5D5600D8CA10 /* Main.storyboard */,
+				5BADEF90283A5D5F00D8CA10 /* LaunchScreen.storyboard */,
+				5BADEF8E283A5D5F00D8CA10 /* Assets.xcassets */,
+				5B2FD41828449C4C002261CE /* pinkWeb.png */,
+				5BEB433E2847CEEF00B7B4B4 /* smoke.png */,
+				5BEB433F2847CEEF00B7B4B4 /* Smoke.scnp */,
 			);
 			path = "ARKit Demo";
 			sourceTree = "<group>";
@@ -142,7 +139,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BADEF88283A5D5600D8CA10 /* art.scnassets in Resources */,
-				5B970995284750E3008FB176 /* SmokeParticle.sks in Resources */,
+				5BEB43412847CEEF00B7B4B4 /* Smoke.scnp in Resources */,
+				5BEB43402847CEEF00B7B4B4 /* smoke.png in Resources */,
 				5BADEF92283A5D5F00D8CA10 /* LaunchScreen.storyboard in Resources */,
 				5BADEF8F283A5D5F00D8CA10 /* Assets.xcassets in Resources */,
 				5B2FD41928449C4C002261CE /* pinkWeb.png in Resources */,
@@ -158,9 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BADEF8A283A5D5600D8CA10 /* ViewController.swift in Sources */,
-				5B2FD41D2844D835002261CE /* BiteMaskCategory.swift in Sources */,
 				5B97099328469715008FB176 /* VirtualObject.swift in Sources */,
-				5B2FD41B2844B474002261CE /* Box.swift in Sources */,
 				5B2FD41728449B0E002261CE /* Plane.swift in Sources */,
 				5BADEF86283A5D5600D8CA10 /* AppDelegate.swift in Sources */,
 			);
