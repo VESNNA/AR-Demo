@@ -54,26 +54,9 @@ class ViewController: UIViewController {
     }
     
     func setupGestures() {
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeBox))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
-        
-        let doubleztapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
-        doubleztapGestureRecognizer.numberOfTapsRequired = 2
-        tapGestureRecognizer.require(toFail: doubleztapGestureRecognizer)
-        self.sceneView.addGestureRecognizer(doubleztapGestureRecognizer)
-    }
-    
-    @objc func placeBox (tapGesture: UITapGestureRecognizer) {
-        
-        let sceneView = tapGesture.view as! ARSCNView
-        let location = tapGesture.location(in: sceneView)
-        
-        let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingExtent])
-        guard let hitResult = hitTestResult.first else { return }
-        
-        createBox(hitResult: hitResult)
     }
     
     @objc func placeVirtualObject (tapGesture: UITapGestureRecognizer) {
@@ -86,19 +69,13 @@ class ViewController: UIViewController {
         createVirtualObject(hitResult: hitResult)
     }
     
-    func createBox(hitResult: ARHitTestResult) {
-        let position = SCNVector3(hitResult.worldTransform.columns.3.x,
-                                  hitResult.worldTransform.columns.3.y + 0.5, //need to spawn box above plane
-                                  hitResult.worldTransform.columns.3.z)
-        let box = Box(atPosition: position)
-        sceneView.scene.rootNode.addChildNode(box)
-    }
-    
     func createVirtualObject(hitResult: ARHitTestResult) {
         let position = SCNVector3(hitResult.worldTransform.columns.3.x,
                                   hitResult.worldTransform.columns.3.y,
                                   hitResult.worldTransform.columns.3.z)
-        let virtualObject = VirtualObject.availableObjects[0]
+        guard let virtualObject = VirtualObject.availableObjects.first else {
+            fatalError("There is no virtual objects available") }
+        
         virtualObject.position = position
         virtualObject.load()
         sceneView.scene.rootNode.addChildNode(virtualObject)
