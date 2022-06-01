@@ -14,7 +14,7 @@ class VirtualObject: SCNReferenceNode {
                                                withExtension: nil) else { return [] }
         let fileEnumerator = FileManager().enumerator(at: modelsURLs,
                                                       includingPropertiesForKeys: nil)!
-        return fileEnumerator.flatMap { element in
+        return fileEnumerator.compactMap { element in
             
             let url = element as! URL
             guard url.pathExtension == "scn" else { return nil }
