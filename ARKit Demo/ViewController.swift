@@ -58,6 +58,11 @@ class ViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeBox))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
+        let doubleztapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
+        doubleztapGestureRecognizer.numberOfTapsRequired = 2
+        tapGestureRecognizer.require(toFail: doubleztapGestureRecognizer)
+        self.sceneView.addGestureRecognizer(doubleztapGestureRecognizer)
     }
     
     @objc func placeBox (tapGesture: UITapGestureRecognizer) {
@@ -68,6 +73,17 @@ class ViewController: UIViewController {
         let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingExtent])
         guard let hitResult = hitTestResult.first else { return }
         
+        createBox(hitResult: hitResult)
+    }
+    
+    @objc func placeVirtualObject (tapGesture: UITapGestureRecognizer) {
+        let sceneView = tapGesture.view as! ARSCNView
+        let location = tapGesture.location(in: sceneView)
+        
+        let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingExtent])
+        guard let hitResult = hitTestResult.first else { return }
+        
+        createVirtualObject(hitResult: hitResult)
     }
     
     func createBox(hitResult: ARHitTestResult) {
@@ -76,6 +92,16 @@ class ViewController: UIViewController {
                                   hitResult.worldTransform.columns.3.z)
         let box = Box(atPosition: position)
         sceneView.scene.rootNode.addChildNode(box)
+    }
+    
+    func createVirtualObject(hitResult: ARHitTestResult) {
+        let position = SCNVector3(hitResult.worldTransform.columns.3.x,
+                                  hitResult.worldTransform.columns.3.y,
+                                  hitResult.worldTransform.columns.3.z)
+        let virtualObject = VirtualObject.availableObjects[0]
+        virtualObject.position = position
+        virtualObject.load()
+        sceneView.scene.rootNode.addChildNode(virtualObject)
     }
 }
 
