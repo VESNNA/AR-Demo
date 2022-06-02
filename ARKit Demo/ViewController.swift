@@ -23,14 +23,12 @@ class ViewController: UIViewController {
         
         sceneView.showsStatistics = true
         sceneView.autoenablesDefaultLighting = true
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints,
-                                  ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         let scene = SCNScene()
         sceneView.scene = scene
         
         sceneView.delegate = self
-        sceneView.scene.physicsWorld.contactDelegate = self
         
         setupGestures()
     }
@@ -54,13 +52,14 @@ class ViewController: UIViewController {
     }
     
     func setupGestures() {
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeBox))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    @objc func placeBox (tapGesture: UITapGestureRecognizer) {
+    @objc func placeVirtualObject(tapGesture: UITapGestureRecognizer) {
+        
+        self.sceneView.scene.removeAllParticleSystems()
         
         let sceneView = tapGesture.view as! ARSCNView
         let location = tapGesture.location(in: sceneView)
@@ -68,14 +67,25 @@ class ViewController: UIViewController {
         let hitTestResult = sceneView.hitTest(location, types: [.existingPlaneUsingExtent])
         guard let hitResult = hitTestResult.first else { return }
         
+        createVirtualObject(hitResult: hitResult)
     }
     
-    func createBox(hitResult: ARHitTestResult) {
+    func createVirtualObject(hitResult: ARHitTestResult) {
         let position = SCNVector3(hitResult.worldTransform.columns.3.x,
-                                  hitResult.worldTransform.columns.3.y + 0.5, //need to spawn box above plane
+                                  hitResult.worldTransform.columns.3.y,
                                   hitResult.worldTransform.columns.3.z)
-        let box = Box(atPosition: position)
-        sceneView.scene.rootNode.addChildNode(box)
+        guard let virtualObject = VirtualObject.availableObjects.first else {
+            fatalError("There is no virtual objects available") }
+        
+        virtualObject.position = position
+        virtualObject.load()
+        
+        if let particleSystem = SCNParticleSystem(named: "Smoke.scnp", inDirectory: nil),
+           let smokeNode = virtualObject.childNode(withName: "smokeNode", recursively: true) {
+            smokeNode.addParticleSystem(particleSystem)
+        }
+        
+        sceneView.scene.rootNode.addChildNode(virtualObject)
     }
 }
 
@@ -99,20 +109,5 @@ extension ViewController: ARSCNViewDelegate {
         
         guard plane != nil else { return }
         plane?.update(anchor: anchor as! ARPlaneAnchor)
-    }
-}
-
-extension ViewController: SCNPhysicsContactDelegate {
-    
-    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        
-        let nodeA = contact.nodeA
-        let nodeB = contact.nodeB
-        
-        if nodeB.physicsBody?.contactTestBitMask == BitMaskCategory.box {
-            nodeA.geometry?.materials.first?.diffuse.contents = UIColor.red
-            return
-        }
-        nodeB.geometry?.materials.first?.diffuse.contents = UIColor.red
     }
 }
